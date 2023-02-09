@@ -1,0 +1,63 @@
+Configurando o Imagick no Windows
+
+Passo 1:
+
+	Baixar as DLL's do Imagick compativel com o Windows e o PHP
+
+	https://mlocati.github.io/articles/php-windows-imagick.html
+
+Passo 2:
+
+	Abrir o zip e copiar o arquivo php_imagick.dll para o diretório C:\xampp\php\ext
+
+Passo 3:
+
+	Abrir o zip e copiar todos os arquivos.dll que iniciam com CORE_RL, FILTER e IM_MOD_RL para o diretório C:\xampp\php
+
+Passo 4:
+
+	No php.ini caminho C:\xampp\php\php.ini, adicionar a seguinte estensão abaixo
+
+		extension=php_imagick.dll
+
+Com isso estará configurado o imagick
+-----------------------------------------------------------------------------------
+
+Configurando Ghostscript no Windows
+
+. Passo 1:
+
+	Baixar o Ghostscript, os teste que fiz era a versão 10 32bits, mas também verificar qual a versão que é a arquitetura e versão do php, na url abaixo explica
+
+	Explicação: https://mlocati.github.io/articles/php-windows-imagick.html
+
+	Download: https://ghostscript.com/releases/gsdnld.html
+
+. Passo 2:
+
+	Verificar se esta instalado
+
+	gswin32c -v
+	gswin64c -v
+
+	Após instalado é necessário fazer uma alteração no .exe do ghostscript.
+	Fazer a cópias dos exe e guardar em uma pasta no mesmo diretório, e renomear de gswin32.exe ou gswin64.exe para gs.exe
+
+. Passo 3:
+
+	Em variáveis de ambiente colocar o seguinte caminho no path user e sistema
+
+	variáveis de usuário:
+
+		C:\Program Files (x86)\gs\gs10.00.0\bin
+
+	variáveis do sistema:
+	
+		C:\Program Files (x86)\gs\gs10.00.0\bin
+		C:\Program Files (x86)\gs\gs10.00.0\lib
+
+. Passo 4:
+
+	No php.ini caminho C:\xampp\php\php.ini, adicionar a seguinte estensão abaixo
+
+	imagick.config.settings.gs_exe = "C:\Program Files (x86)\gs\gs10.00.0\bin\gs.exe"
